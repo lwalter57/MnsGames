@@ -9,11 +9,11 @@ using MnsGames.Data;
 
 #nullable disable
 
-namespace MnsGames.Data.Migrations
+namespace MnsGames.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230619190230_NullableAppUser")]
-    partial class NullableAppUser
+    [Migration("20230620211958_initialCreate")]
+    partial class initialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -49,6 +49,22 @@ namespace MnsGames.Data.Migrations
                         .HasFilter("[NormalizedName] IS NOT NULL");
 
                     b.ToTable("AspNetRoles", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "bivz7894-ez8e-ehvnvz-nmqm719za4ea",
+                            ConcurrencyStamp = "cadb45e1-4027-488d-9980-951d419fbe8e",
+                            Name = "Admin",
+                            NormalizedName = "ADMIN"
+                        },
+                        new
+                        {
+                            Id = "biva7896-ez7f-ehvphz-nmqm917za4db",
+                            ConcurrencyStamp = "7c8d2059-766a-49d0-8589-d32b6c093a45",
+                            Name = "User",
+                            NormalizedName = "USER"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -138,6 +154,18 @@ namespace MnsGames.Data.Migrations
                     b.HasIndex("RoleId");
 
                     b.ToTable("AspNetUserRoles", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            UserId = "367ee742-981e-470d-a02f-5decca03e7a8",
+                            RoleId = "bivz7894-ez8e-ehvnvz-nmqm719za4ea"
+                        },
+                        new
+                        {
+                            UserId = "17b4691e-4119-4ed4-990a-dc5186439777",
+                            RoleId = "biva7896-ez7f-ehvphz-nmqm917za4db"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
@@ -159,23 +187,6 @@ namespace MnsGames.Data.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens", (string)null);
-                });
-
-            modelBuilder.Entity("MnsGames.Data.Answer", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<string>("LabelAnswer")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Answers");
                 });
 
             modelBuilder.Entity("MnsGames.Data.AppUser", b =>
@@ -204,12 +215,11 @@ namespace MnsGames.Data.Migrations
                         .HasColumnType("bit");
 
                     b.Property<string>("FirstName")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool>("IsAdmin")
-                        .HasColumnType("bit");
-
                     b.Property<string>("LastName")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("LockoutEnabled")
@@ -218,10 +228,7 @@ namespace MnsGames.Data.Migrations
                     b.Property<DateTimeOffset?>("LockoutEnd")
                         .HasColumnType("datetimeoffset");
 
-                    b.Property<string>("LoginNickname")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("LoginPassword")
+                    b.Property<string>("Nickname")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("NormalizedEmail")
@@ -271,6 +278,44 @@ namespace MnsGames.Data.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "367ee742-981e-470d-a02f-5decca03e7a8",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "b45d7757-a55a-4110-8bf2-bfa2832c5432",
+                            Email = "admin@admin.com",
+                            EmailConfirmed = true,
+                            FirstName = "System",
+                            LastName = "Admin",
+                            LockoutEnabled = false,
+                            NormalizedEmail = "ADMIN@ADMIN.com",
+                            NormalizedUserName = "ADMIN@ADMIN.com",
+                            PasswordHash = "AQAAAAEAACcQAAAAEBEJ6qRCLDmFi14NxGTv08hx7IwAdArWai1z4DaXJiXrDOOMtFPTr8JWVOGq3DbxPA==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "e4d65cde-285e-4e50-af9b-37e29c3064bc",
+                            TwoFactorEnabled = false,
+                            UserName = "admin@admin.com"
+                        },
+                        new
+                        {
+                            Id = "17b4691e-4119-4ed4-990a-dc5186439777",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "da240f86-364d-4e9d-8be2-12a4cb26bf73",
+                            Email = "user@localhost.com",
+                            EmailConfirmed = true,
+                            FirstName = "System",
+                            LastName = "User",
+                            LockoutEnabled = false,
+                            NormalizedEmail = "USER@LOCALHOST.com",
+                            NormalizedUserName = "USER@LOCALHOST.com",
+                            PasswordHash = "AQAAAAEAACcQAAAAEPQPQY7XRthFuQhyyRd0mQFD8kK325aj3y05WOlZksAKxkb0h+2dY6UJKJAC/xDhtg==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "feac260a-78b0-4bfd-9ff5-f610e11269e7",
+                            TwoFactorEnabled = false,
+                            UserName = "user@localhost.fr"
+                        });
                 });
 
             modelBuilder.Entity("MnsGames.Data.Question", b =>

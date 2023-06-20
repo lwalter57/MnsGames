@@ -5,9 +5,8 @@ namespace MnsGames.Data
 {
     public class AppUser : IdentityUser
     {
-        public int Id { get; set; }
 
-        public string Nickname { get; set; }
+        public string? Nickname { get; set; }
 
         public string FirstName { get; set; }
 
