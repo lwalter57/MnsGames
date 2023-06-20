@@ -10,6 +10,12 @@ namespace MnsGames.Data
         {
         }
 
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            base.OnModelCreating(builder);
+            builder.ApplyConfiguration(new RoleSeedConfiguration());
+        } 
+
         public DbSet<AppUser> AppUsers { get; set; }
         public DbSet<Theme> Themes { get; set; }
         public DbSet<Quiz> Quizzes { get; set; }
