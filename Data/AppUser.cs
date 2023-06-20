@@ -7,18 +7,12 @@ namespace MnsGames.Data
     {
         public int Id { get; set; }
 
-        public string? LoginNickname { get; set; }
+        public string Nickname { get; set; }
 
-        public string? LoginPassword { get; set; }
+        public string FirstName { get; set; }
 
-        public string? Email { get; set; }
+        public string LastName { get; set; }
 
-        public string? FirstName { get; set; }
-
-        public string? LastName { get; set; }
-
-        [DefaultValue(false)]
-        public bool IsAdmin { get; set; }
 
         public string? StreetNumber { get; set; }
 
