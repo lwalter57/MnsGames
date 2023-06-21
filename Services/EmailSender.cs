@@ -26,6 +26,8 @@ namespace MnsGames.Services
                 IsBodyHtml = true
             };
 
+            //sdWj27rwYTacJfEI
+
             message.To.Add(new MailAddress(email));
 
             using var client = new SmtpClient(_smtpServer, _smtpPort);

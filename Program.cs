@@ -23,7 +23,7 @@ namespace MnsGames
                 .AddEntityFrameworkStores<ApplicationDbContext>();
 
             //EmailService
-            builder.Services.AddTransient<IEmailSender>(s => new EmailSender("localhost", 25, "noreply@mnsgames.com"));
+            builder.Services.AddTransient<IEmailSender>(s => new EmailSender("smtp-relay.sendinblue.com", 587, "noreply.mnsgames@gmail.com"));
 
             builder.Services.AddControllersWithViews();
 
