@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace MnsGames.Migrations
 {
-    public partial class initialCreate : Migration
+    public partial class InitialCreate : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -217,8 +217,8 @@ namespace MnsGames.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "biva7896-ez7f-ehvphz-nmqm917za4db", "7c8d2059-766a-49d0-8589-d32b6c093a45", "User", "USER" },
-                    { "bivz7894-ez8e-ehvnvz-nmqm719za4ea", "cadb45e1-4027-488d-9980-951d419fbe8e", "Admin", "ADMIN" }
+                    { "biva7896-ez7f-ehvphz-nmqm917za4db", "c5349018-09a1-48fd-b1d7-a0aba7c92a3b", "User", "USER" },
+                    { "bivz7894-ez8e-ehvnvz-nmqm719za4ea", "c84c5b2a-d4f9-4033-b50a-6fb4487eb823", "Admin", "ADMIN" }
                 });
 
             migrationBuilder.InsertData(
@@ -226,8 +226,8 @@ namespace MnsGames.Migrations
                 columns: new[] { "Id", "AccessFailedCount", "City", "ConcurrencyStamp", "Country", "Email", "EmailConfirmed", "FirstName", "LastName", "LockoutEnabled", "LockoutEnd", "Nickname", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "StreetName", "StreetNumber", "TwoFactorEnabled", "UserName", "Zipcode" },
                 values: new object[,]
                 {
-                    { "17b4691e-4119-4ed4-990a-dc5186439777", 0, null, "da240f86-364d-4e9d-8be2-12a4cb26bf73", null, "user@localhost.com", true, "System", "User", false, null, null, "USER@LOCALHOST.com", "USER@LOCALHOST.com", "AQAAAAEAACcQAAAAEPQPQY7XRthFuQhyyRd0mQFD8kK325aj3y05WOlZksAKxkb0h+2dY6UJKJAC/xDhtg==", null, false, "feac260a-78b0-4bfd-9ff5-f610e11269e7", null, null, false, "user@localhost.fr", null },
-                    { "367ee742-981e-470d-a02f-5decca03e7a8", 0, null, "b45d7757-a55a-4110-8bf2-bfa2832c5432", null, "admin@admin.com", true, "System", "Admin", false, null, null, "ADMIN@ADMIN.com", "ADMIN@ADMIN.com", "AQAAAAEAACcQAAAAEBEJ6qRCLDmFi14NxGTv08hx7IwAdArWai1z4DaXJiXrDOOMtFPTr8JWVOGq3DbxPA==", null, false, "e4d65cde-285e-4e50-af9b-37e29c3064bc", null, null, false, "admin@admin.com", null }
+                    { "17b4691e-4119-4ed4-990a-dc5186439777", 0, null, "a288bd51-02d7-426a-b2b6-c8bfeb07536f", null, "user@localhost.com", true, "System", "User", false, null, null, "USER@LOCALHOST.com", "USER@LOCALHOST.com", "AQAAAAEAACcQAAAAEGzci1zLSfNZv2yH8N0D1jVYDPckoYLvnJmagIxOedGde3fnwd42FX+xVMVzcj54fw==", null, false, "ee138baf-a36c-40fa-a839-f791261cfd83", null, null, false, "user@localhost.fr", null },
+                    { "367ee742-981e-470d-a02f-5decca03e7a8", 0, null, "fd71e7bd-ae6c-41e0-be0c-e2e1dc9651af", null, "admin@admin.com", true, "System", "Admin", false, null, null, "ADMIN@ADMIN.com", "ADMIN@ADMIN.com", "AQAAAAEAACcQAAAAEEHOiro2+fbagBCm6R7WCtcVPL8otYElDE1+p90/t9tQ/ohmV5d3VgzQZuSWINXymQ==", null, false, "1213d931-3640-4258-8c04-983d1c9121f8", null, null, false, "admin@admin.com", null }
                 });
 
             migrationBuilder.InsertData(

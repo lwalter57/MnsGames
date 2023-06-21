@@ -1,6 +1,8 @@
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.EntityFrameworkCore;
 using MnsGames.Data;
+using MnsGames.Services;
 
 namespace MnsGames
 {
@@ -19,6 +21,10 @@ namespace MnsGames
             builder.Services.AddDefaultIdentity<AppUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddRoles<IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
+
+            //EmailService
+            builder.Services.AddTransient<IEmailSender>(s => new EmailSender("localhost", 25, "noreply@mnsgames.com"));
+
             builder.Services.AddControllersWithViews();
 
             var app = builder.Build();

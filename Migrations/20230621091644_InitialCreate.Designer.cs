@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MnsGames.Data;
 
@@ -11,9 +12,10 @@ using MnsGames.Data;
 namespace MnsGames.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230621091644_InitialCreate")]
+    partial class InitialCreate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -52,14 +54,14 @@ namespace MnsGames.Migrations
                         new
                         {
                             Id = "bivz7894-ez8e-ehvnvz-nmqm719za4ea",
-                            ConcurrencyStamp = "2e580bfd-b227-480b-b68b-ca5ff0b7d0bc",
+                            ConcurrencyStamp = "c84c5b2a-d4f9-4033-b50a-6fb4487eb823",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
                             Id = "biva7896-ez7f-ehvphz-nmqm917za4db",
-                            ConcurrencyStamp = "f63eb0dd-2fa1-496a-9c56-54a56880114b",
+                            ConcurrencyStamp = "c5349018-09a1-48fd-b1d7-a0aba7c92a3b",
                             Name = "User",
                             NormalizedName = "USER"
                         });
@@ -282,7 +284,7 @@ namespace MnsGames.Migrations
                         {
                             Id = "367ee742-981e-470d-a02f-5decca03e7a8",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "42976852-e39b-4d1c-bc20-dd4eb634d97a",
+                            ConcurrencyStamp = "fd71e7bd-ae6c-41e0-be0c-e2e1dc9651af",
                             Email = "admin@admin.com",
                             EmailConfirmed = true,
                             FirstName = "System",
@@ -290,9 +292,9 @@ namespace MnsGames.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@ADMIN.com",
                             NormalizedUserName = "ADMIN@ADMIN.com",
-                            PasswordHash = "AQAAAAEAACcQAAAAEMDyRkrW7LdIyzXjcoZs36BOvCecuhSF7fjXPQUj/Ji35apGSet9CD/zz1RQHpXSjg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEEHOiro2+fbagBCm6R7WCtcVPL8otYElDE1+p90/t9tQ/ohmV5d3VgzQZuSWINXymQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "ef733316-1c1a-4600-a8e2-5c8f7eb8d937",
+                            SecurityStamp = "1213d931-3640-4258-8c04-983d1c9121f8",
                             TwoFactorEnabled = false,
                             UserName = "admin@admin.com"
                         },
@@ -300,7 +302,7 @@ namespace MnsGames.Migrations
                         {
                             Id = "17b4691e-4119-4ed4-990a-dc5186439777",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "528459fc-5b6d-4f3f-aaa8-87784eb25036",
+                            ConcurrencyStamp = "a288bd51-02d7-426a-b2b6-c8bfeb07536f",
                             Email = "user@localhost.com",
                             EmailConfirmed = true,
                             FirstName = "System",
@@ -308,9 +310,9 @@ namespace MnsGames.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "USER@LOCALHOST.com",
                             NormalizedUserName = "USER@LOCALHOST.com",
-                            PasswordHash = "AQAAAAEAACcQAAAAEMOM5BS0fBSa27lsotxJSoz65U5gFstVC6mmkTi6AtBojKF8HmHpkqBAGOGsZ4wvZg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEGzci1zLSfNZv2yH8N0D1jVYDPckoYLvnJmagIxOedGde3fnwd42FX+xVMVzcj54fw==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "6d217acc-5103-4c75-be61-fcc4b22f7521",
+                            SecurityStamp = "ee138baf-a36c-40fa-a839-f791261cfd83",
                             TwoFactorEnabled = false,
                             UserName = "user@localhost.fr"
                         });

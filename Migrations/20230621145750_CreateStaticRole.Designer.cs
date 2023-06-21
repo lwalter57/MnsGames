@@ -12,8 +12,8 @@ using MnsGames.Data;
 namespace MnsGames.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230620211958_initialCreate")]
-    partial class initialCreate
+    [Migration("20230621145750_CreateStaticRole")]
+    partial class CreateStaticRole
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -54,14 +54,14 @@ namespace MnsGames.Migrations
                         new
                         {
                             Id = "bivz7894-ez8e-ehvnvz-nmqm719za4ea",
-                            ConcurrencyStamp = "cadb45e1-4027-488d-9980-951d419fbe8e",
+                            ConcurrencyStamp = "2e580bfd-b227-480b-b68b-ca5ff0b7d0bc",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
                             Id = "biva7896-ez7f-ehvphz-nmqm917za4db",
-                            ConcurrencyStamp = "7c8d2059-766a-49d0-8589-d32b6c093a45",
+                            ConcurrencyStamp = "f63eb0dd-2fa1-496a-9c56-54a56880114b",
                             Name = "User",
                             NormalizedName = "USER"
                         });
@@ -284,7 +284,7 @@ namespace MnsGames.Migrations
                         {
                             Id = "367ee742-981e-470d-a02f-5decca03e7a8",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "b45d7757-a55a-4110-8bf2-bfa2832c5432",
+                            ConcurrencyStamp = "42976852-e39b-4d1c-bc20-dd4eb634d97a",
                             Email = "admin@admin.com",
                             EmailConfirmed = true,
                             FirstName = "System",
@@ -292,9 +292,9 @@ namespace MnsGames.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@ADMIN.com",
                             NormalizedUserName = "ADMIN@ADMIN.com",
-                            PasswordHash = "AQAAAAEAACcQAAAAEBEJ6qRCLDmFi14NxGTv08hx7IwAdArWai1z4DaXJiXrDOOMtFPTr8JWVOGq3DbxPA==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEMDyRkrW7LdIyzXjcoZs36BOvCecuhSF7fjXPQUj/Ji35apGSet9CD/zz1RQHpXSjg==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "e4d65cde-285e-4e50-af9b-37e29c3064bc",
+                            SecurityStamp = "ef733316-1c1a-4600-a8e2-5c8f7eb8d937",
                             TwoFactorEnabled = false,
                             UserName = "admin@admin.com"
                         },
@@ -302,7 +302,7 @@ namespace MnsGames.Migrations
                         {
                             Id = "17b4691e-4119-4ed4-990a-dc5186439777",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "da240f86-364d-4e9d-8be2-12a4cb26bf73",
+                            ConcurrencyStamp = "528459fc-5b6d-4f3f-aaa8-87784eb25036",
                             Email = "user@localhost.com",
                             EmailConfirmed = true,
                             FirstName = "System",
@@ -310,9 +310,9 @@ namespace MnsGames.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "USER@LOCALHOST.com",
                             NormalizedUserName = "USER@LOCALHOST.com",
-                            PasswordHash = "AQAAAAEAACcQAAAAEPQPQY7XRthFuQhyyRd0mQFD8kK325aj3y05WOlZksAKxkb0h+2dY6UJKJAC/xDhtg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEMOM5BS0fBSa27lsotxJSoz65U5gFstVC6mmkTi6AtBojKF8HmHpkqBAGOGsZ4wvZg==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "feac260a-78b0-4bfd-9ff5-f610e11269e7",
+                            SecurityStamp = "6d217acc-5103-4c75-be61-fcc4b22f7521",
                             TwoFactorEnabled = false,
                             UserName = "user@localhost.fr"
                         });
