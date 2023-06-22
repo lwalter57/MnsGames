@@ -1,3 +1,4 @@
+using AutoMapper;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.EntityFrameworkCore;
@@ -24,6 +25,9 @@ namespace MnsGames
 
             //EmailService
             builder.Services.AddTransient<IEmailSender>(s => new EmailSender("smtp-relay.sendinblue.com", 587, "noreply.mnsgames@gmail.com"));
+
+            //AutoMapper
+            builder.Services.AddAutoMapper(typeof(MapperConfiguration));
 
             builder.Services.AddControllersWithViews();
 

@@ -19,9 +19,6 @@ namespace MnsGames.Services
 
         public Task SendEmailAsync(string email, string subject, string htmlMessage)
         {
-
-
-
             var message = new MailMessage
             {
                 From = new MailAddress(_fromEmailAddress),

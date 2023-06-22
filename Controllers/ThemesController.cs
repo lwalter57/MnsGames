@@ -8,6 +8,8 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using MnsGames.Data;
 using MnsGames.Constants;
+using MnsGames.Models;
+using AutoMapper;
 
 namespace MnsGames.Controllers
 {
@@ -15,20 +17,20 @@ namespace MnsGames.Controllers
     public class ThemesController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly IMapper _mapper;
 
-        public ThemesController(ApplicationDbContext context)
+        public ThemesController(ApplicationDbContext context, IMapper mapper)
         {
             _context = context;
+            _mapper = mapper;
         }
 
         // GET: Themes
         public async Task<IActionResult> Index()
         {
-              return _context.Themes != null ? 
-                          View(await _context.Themes.ToListAsync()) : /* Select * from Themes */
-                          Problem("Entity set 'ApplicationDbContext.Themes'  is null.");
+            var themes = _mapper.Map<List<ThemeVM>>(await _context.Themes.ToListAsync());
+            return View(themes);
         }
-
         // GET: Themes/Details/5
         public async Task<IActionResult> Details(int? id)
         {
@@ -58,15 +60,15 @@ namespace MnsGames.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Title")] Theme theme)
+        public async Task<IActionResult> Create(ThemeVM themeVM)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(theme);
+                _context.Add(themeVM);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(theme);
+            return View(themeVM);
         }
 
         // GET: Themes/Edit/5
