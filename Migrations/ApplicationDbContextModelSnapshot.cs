@@ -52,14 +52,14 @@ namespace MnsGames.Migrations
                         new
                         {
                             Id = "bivz7894-ez8e-ehvnvz-nmqm719za4ea",
-                            ConcurrencyStamp = "2e580bfd-b227-480b-b68b-ca5ff0b7d0bc",
+                            ConcurrencyStamp = "48ecab0a-1323-4498-9948-7b6ea59a5e94",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
                             Id = "biva7896-ez7f-ehvphz-nmqm917za4db",
-                            ConcurrencyStamp = "f63eb0dd-2fa1-496a-9c56-54a56880114b",
+                            ConcurrencyStamp = "f231b70e-fef5-4032-bb30-cec8347e880e",
                             Name = "User",
                             NormalizedName = "USER"
                         });
@@ -282,7 +282,7 @@ namespace MnsGames.Migrations
                         {
                             Id = "367ee742-981e-470d-a02f-5decca03e7a8",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "42976852-e39b-4d1c-bc20-dd4eb634d97a",
+                            ConcurrencyStamp = "809aeb99-519a-4f32-8e66-d0f61df5dcdf",
                             Email = "admin@admin.com",
                             EmailConfirmed = true,
                             FirstName = "System",
@@ -290,9 +290,9 @@ namespace MnsGames.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@ADMIN.com",
                             NormalizedUserName = "ADMIN@ADMIN.com",
-                            PasswordHash = "AQAAAAEAACcQAAAAEMDyRkrW7LdIyzXjcoZs36BOvCecuhSF7fjXPQUj/Ji35apGSet9CD/zz1RQHpXSjg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEEVaoo5BmXVdiAFCR7H7xXueaTFm9w668rhOg70I0FbbnbGTfh6q4Z6zWTRbd40WSg==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "ef733316-1c1a-4600-a8e2-5c8f7eb8d937",
+                            SecurityStamp = "a1944b3f-9c28-4e99-b0f2-9355d1e826b3",
                             TwoFactorEnabled = false,
                             UserName = "admin@admin.com"
                         },
@@ -300,7 +300,7 @@ namespace MnsGames.Migrations
                         {
                             Id = "17b4691e-4119-4ed4-990a-dc5186439777",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "528459fc-5b6d-4f3f-aaa8-87784eb25036",
+                            ConcurrencyStamp = "24b3dba0-23bb-458f-bc1a-af83e2c4c403",
                             Email = "user@localhost.com",
                             EmailConfirmed = true,
                             FirstName = "System",
@@ -308,9 +308,9 @@ namespace MnsGames.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "USER@LOCALHOST.com",
                             NormalizedUserName = "USER@LOCALHOST.com",
-                            PasswordHash = "AQAAAAEAACcQAAAAEMOM5BS0fBSa27lsotxJSoz65U5gFstVC6mmkTi6AtBojKF8HmHpkqBAGOGsZ4wvZg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEO4obJASpSNBeYy8LiLmp/LmLpC11wzZsjpcjGpL9KtLAJ/pA4j0OGp9DepQWHnRpw==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "6d217acc-5103-4c75-be61-fcc4b22f7521",
+                            SecurityStamp = "dd01d389-6ade-4e99-a829-155e77e9bfc4",
                             TwoFactorEnabled = false,
                             UserName = "user@localhost.fr"
                         });
@@ -374,6 +374,9 @@ namespace MnsGames.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Title")
                         .IsRequired()

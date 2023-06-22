@@ -5,9 +5,9 @@ using MnsGames.Models;
 
 namespace MnsGames.Configurations
 {
-    public class MapperConfiguration : Profile
+    public class MapperConfig : Profile
     {
-        public MapperConfiguration() 
+        public MapperConfig() 
         {
             CreateMap<Theme, ThemeVM>().ReverseMap();
         }

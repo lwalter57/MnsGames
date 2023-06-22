@@ -12,8 +12,8 @@ using MnsGames.Data;
 namespace MnsGames.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230621145750_CreateStaticRole")]
-    partial class CreateStaticRole
+    [Migration("20230622162430_AddDescriptionToTheme")]
+    partial class AddDescriptionToTheme
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -54,14 +54,14 @@ namespace MnsGames.Migrations
                         new
                         {
                             Id = "bivz7894-ez8e-ehvnvz-nmqm719za4ea",
-                            ConcurrencyStamp = "2e580bfd-b227-480b-b68b-ca5ff0b7d0bc",
+                            ConcurrencyStamp = "8b614b8a-3872-4296-8244-5c6503b42cd4",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
                             Id = "biva7896-ez7f-ehvphz-nmqm917za4db",
-                            ConcurrencyStamp = "f63eb0dd-2fa1-496a-9c56-54a56880114b",
+                            ConcurrencyStamp = "a1610526-6f5e-4a29-921e-9123fca2f17e",
                             Name = "User",
                             NormalizedName = "USER"
                         });
@@ -284,7 +284,7 @@ namespace MnsGames.Migrations
                         {
                             Id = "367ee742-981e-470d-a02f-5decca03e7a8",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "42976852-e39b-4d1c-bc20-dd4eb634d97a",
+                            ConcurrencyStamp = "f71a3e79-fbc2-40d0-980f-0dbd3640e233",
                             Email = "admin@admin.com",
                             EmailConfirmed = true,
                             FirstName = "System",
@@ -292,9 +292,9 @@ namespace MnsGames.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@ADMIN.com",
                             NormalizedUserName = "ADMIN@ADMIN.com",
-                            PasswordHash = "AQAAAAEAACcQAAAAEMDyRkrW7LdIyzXjcoZs36BOvCecuhSF7fjXPQUj/Ji35apGSet9CD/zz1RQHpXSjg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEO9tGikGdHnY1goCXKq4b9iUF/8sijbQf1oj7xXTZxh+VbN/2hetX39icEBuvWSZ4A==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "ef733316-1c1a-4600-a8e2-5c8f7eb8d937",
+                            SecurityStamp = "a5e42b82-c5ed-46fc-8a9d-74b437936678",
                             TwoFactorEnabled = false,
                             UserName = "admin@admin.com"
                         },
@@ -302,7 +302,7 @@ namespace MnsGames.Migrations
                         {
                             Id = "17b4691e-4119-4ed4-990a-dc5186439777",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "528459fc-5b6d-4f3f-aaa8-87784eb25036",
+                            ConcurrencyStamp = "7c392023-f6d3-43d3-a457-6d646311bda4",
                             Email = "user@localhost.com",
                             EmailConfirmed = true,
                             FirstName = "System",
@@ -310,9 +310,9 @@ namespace MnsGames.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "USER@LOCALHOST.com",
                             NormalizedUserName = "USER@LOCALHOST.com",
-                            PasswordHash = "AQAAAAEAACcQAAAAEMOM5BS0fBSa27lsotxJSoz65U5gFstVC6mmkTi6AtBojKF8HmHpkqBAGOGsZ4wvZg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEJkDAMiOUMFb1qke344OHvYEyUlXe9glDA6a1KWk+1KRsfN7/Bt7r5PhghcevQB8Lg==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "6d217acc-5103-4c75-be61-fcc4b22f7521",
+                            SecurityStamp = "c5d955e4-043b-4eef-93ca-ad5d07bcbf07",
                             TwoFactorEnabled = false,
                             UserName = "user@localhost.fr"
                         });
@@ -376,6 +376,10 @@ namespace MnsGames.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Title")
                         .IsRequired()
