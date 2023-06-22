@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Identity.UI.Services;
+using System.Net;
 using System.Net.Mail;
 
 namespace MnsGames.Services
@@ -18,6 +19,9 @@ namespace MnsGames.Services
 
         public Task SendEmailAsync(string email, string subject, string htmlMessage)
         {
+
+
+
             var message = new MailMessage
             {
                 From = new MailAddress(_fromEmailAddress),
@@ -30,7 +34,11 @@ namespace MnsGames.Services
 
             message.To.Add(new MailAddress(email));
 
-            using var client = new SmtpClient(_smtpServer, _smtpPort);
+            using var client = new SmtpClient(_smtpServer, _smtpPort)
+            {
+                Credentials = new NetworkCredential("noreply.mnsgames@gmail.com", "sdWj27rwYTacJfEI"),
+                EnableSsl = true,
+            };
             client.Send(message);
 
             return Task.CompletedTask;
