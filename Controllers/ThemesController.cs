@@ -28,8 +28,8 @@ namespace MnsGames.Controllers
         // GET: Themes
         public async Task<IActionResult> Index()
         {
-            var themes = _mapper.Map<List<ThemeVM>>(await _context.Themes.ToListAsync());
-            return View(themes);
+            var themesVM = _mapper.Map<List<ThemeVM>>(await _context.Themes.ToListAsync());
+            return View(themesVM);
         }
         // GET: Themes/Details/5
         public async Task<IActionResult> Details(int? id)
@@ -45,8 +45,8 @@ namespace MnsGames.Controllers
             {
                 return NotFound();
             }
-
-            return View(theme);
+            var themeVM = _mapper.Map<ThemeVM>(theme);
+            return View(themeVM);
         }
 
         // GET: Themes/Create
@@ -60,15 +60,16 @@ namespace MnsGames.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(Theme theme)
+        public async Task<IActionResult> Create(ThemeVM themeVM)
         {
             if (ModelState.IsValid)
             {
+                var theme = _mapper.Map<Theme>(themeVM);
                 _context.Add(theme);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(theme);
+            return View(themeVM);
         }
 
         // GET: Themes/Edit/5
@@ -84,7 +85,9 @@ namespace MnsGames.Controllers
             {
                 return NotFound();
             }
-            return View(theme);
+            var themeVM = _mapper.Map<ThemeVM>(theme);
+
+            return View(themeVM);
         }
 
         // POST: Themes/Edit/5
@@ -92,9 +95,9 @@ namespace MnsGames.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Title")] Theme theme)
+        public async Task<IActionResult> Edit(int id,ThemeVM themeVM)
         {
-            if (id != theme.Id)
+            if (id != themeVM.Id)
             {
                 return NotFound();
             }
@@ -103,12 +106,13 @@ namespace MnsGames.Controllers
             {
                 try
                 {
+                    var theme = _mapper.Map<Theme>(themeVM);
                     _context.Update(theme);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!ThemeExists(theme.Id))
+                    if (!ThemeExists(themeVM.Id))
                     {
                         return NotFound();
                     }
@@ -119,7 +123,7 @@ namespace MnsGames.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(theme);
+            return View(themeVM);
         }
 
         // GET: Themes/Delete/5
@@ -154,7 +158,7 @@ namespace MnsGames.Controllers
             {
                 _context.Themes.Remove(theme);
             }
-            
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
